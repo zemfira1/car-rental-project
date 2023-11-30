@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcar_rental_project=self.webpackChunkcar_rental_project||[]).push([[77],{77:(a,e,r)=>{r.r(e),r.d(e,{default:()=>s});var c=r(584),t=r(184);const s=()=>(0,t.jsx)(c.W,{children:"Catalog of cars"})}}]);
+//# sourceMappingURL=77.4f83be59.chunk.js.map
