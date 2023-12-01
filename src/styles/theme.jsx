@@ -7,6 +7,7 @@ export const theme = Object.freeze({
     grey: '#8A8A89',
     transparencyGrey50: 'rgba(18, 20, 23, 0.5)',
     transparencyGrey20: 'rgba(18, 20, 23, 0.2)',
+    transparencyGrey10: 'rgba(18, 20, 23, 0.1)',
     background: 'rgba(225, 225, 225, 0.8)',
     inputBackground: '#F7F7FB',
     scrollBackground: 'rgba(18, 20, 23, 0.05)',
