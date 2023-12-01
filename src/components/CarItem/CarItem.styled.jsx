@@ -8,6 +8,7 @@ export const Item = styled.li`
 
 export const Image = styled.img`
   width: 100%;
+  object-fit: cover;
   height: ${theme.spacing(67)};
   border-radius: ${theme.spacing(3.5)};
   display: flex;

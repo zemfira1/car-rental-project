@@ -9,6 +9,9 @@ import {
   Characteristics,
   CharacteristicsItem,
 } from './CarItem.styled';
+import { useState } from 'react';
+import { Modal } from 'components/Modal';
+import { ModalInfo } from 'components/ModalInfo';
 
 export const CarItem = ({
   id,
@@ -28,38 +31,62 @@ export const CarItem = ({
   rentalConditions,
   mileage,
 }) => {
-  const addres = address;
-  const addressLength = addres.length;
-  const indexOfFerstComma = addres.indexOf(',');
-  const cityCountry = addres.slice(indexOfFerstComma + 2, addressLength - 1);
-  const cityCountryLength = cityCountry.length;
-  const indexOfSecondComma = cityCountry.indexOf(',');
-  const city = cityCountry.slice(0, indexOfSecondComma);
-  const country = cityCountry.slice(indexOfSecondComma + 2, cityCountryLength);
-  //   console.log(city);
-  //   console.log(country);
+  const addressArray = address.split(',');
+
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(prevState => !prevState);
+  };
 
   return (
-    <Item>
-      <Image src={img} alt={make} />
-      <TitleArea>
-        <Title>
-          {make}, {year}
-        </Title>
-        <Price>{rentalPrice}</Price>
-      </TitleArea>
+    <>
+      <Item>
+        <Image src={img} alt={make} />
+        <TitleArea>
+          <Title>
+            {make}, {year}
+          </Title>
+          <Price>{rentalPrice}</Price>
+        </TitleArea>
 
-      <Characteristics>
-        <CharacteristicsItem>{city}</CharacteristicsItem>
-        <CharacteristicsItem>{country}</CharacteristicsItem>
-        <CharacteristicsItem>{rentalCompany}</CharacteristicsItem>
-        <CharacteristicsItem>{type}</CharacteristicsItem>
-        <CharacteristicsItem>{model}</CharacteristicsItem>
-        <CharacteristicsItem>{id}</CharacteristicsItem>
-        <CharacteristicsItem>{functionalities[0]}</CharacteristicsItem>
-      </Characteristics>
-      <Button type="button">Learn more</Button>
-    </Item>
+        <Characteristics>
+          <CharacteristicsItem>{addressArray[1]}</CharacteristicsItem>
+          <CharacteristicsItem>{addressArray[2]}</CharacteristicsItem>
+          <CharacteristicsItem>{rentalCompany}</CharacteristicsItem>
+          <CharacteristicsItem>{type}</CharacteristicsItem>
+          <CharacteristicsItem>{model}</CharacteristicsItem>
+          <CharacteristicsItem>{id}</CharacteristicsItem>
+          <CharacteristicsItem>{functionalities[0]}</CharacteristicsItem>
+        </Characteristics>
+        <Button type="button" onClick={toggleModal}>
+          Learn more
+        </Button>
+      </Item>
+      {showModal && (
+        <Modal toggleModal={toggleModal}>
+          <ModalInfo
+            toggleModal={toggleModal}
+            id={id}
+            year={year}
+            make={make}
+            model={model}
+            type={type}
+            img={img}
+            description={description}
+            fuelConsumption={fuelConsumption}
+            engineSize={engineSize}
+            accessories={accessories}
+            functionalities={functionalities}
+            rentalPrice={rentalPrice}
+            city={addressArray[1]}
+            country={addressArray[2]}
+            rentalConditions={rentalConditions}
+            mileage={mileage}
+          />
+        </Modal>
+      )}
+    </>
   );
 };
 
