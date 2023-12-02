@@ -1,7 +1,16 @@
 import { Container } from 'components/Container';
+import { HomePage, TitleArea, Title } from './Home.styled';
 
 const Home = () => {
-  return <Container>Home</Container>;
+  return (
+    <HomePage>
+      <Container>
+        <TitleArea>
+          <Title>Premium car rental</Title>
+        </TitleArea>
+      </Container>
+    </HomePage>
+  );
 };
 
 export default Home;

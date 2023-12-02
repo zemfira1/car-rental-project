@@ -8,10 +8,12 @@ import {
   Button,
   Characteristics,
   CharacteristicsItem,
+  HeartIcon,
 } from './CarItem.styled';
 import { useState } from 'react';
 import { Modal } from 'components/Modal';
 import { ModalInfo } from 'components/ModalInfo';
+import sprite from '../../assets/images/symbol-defs.svg';
 
 export const CarItem = ({
   id,
@@ -32,16 +34,28 @@ export const CarItem = ({
   mileage,
 }) => {
   const addressArray = address.split(',');
-
   const [showModal, setShowModal] = useState(false);
+  const [activeHeart, setActiveHeart] = useState(false);
 
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
   };
 
+  const toggleActiveHeart = () => {
+    setActiveHeart(prevState => !prevState);
+  };
+
   return (
     <>
       <Item>
+        <HeartIcon
+          width={16}
+          height={14}
+          onClick={toggleActiveHeart}
+          active={activeHeart ? 'true' : 'false'}
+        >
+          <use href={sprite + '#heart'}></use>
+        </HeartIcon>
         <Image src={img} alt={make} />
         <TitleArea>
           <Title>
@@ -49,7 +63,6 @@ export const CarItem = ({
           </Title>
           <Price>{rentalPrice}</Price>
         </TitleArea>
-
         <Characteristics>
           <CharacteristicsItem>{addressArray[1]}</CharacteristicsItem>
           <CharacteristicsItem>{addressArray[2]}</CharacteristicsItem>

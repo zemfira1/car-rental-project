@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
 import { theme } from 'styles';
 
+export const CatalogPage = styled.section`
+  padding-top: 50px;
+  padding-bottom: 100px;
+`;
+
 export const ButtonArea = styled.div`
   display: flex;
   flex-direction: column;

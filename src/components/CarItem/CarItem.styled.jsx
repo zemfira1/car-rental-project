@@ -4,6 +4,56 @@ import { theme } from 'styles';
 export const Item = styled.li`
   width: 100%;
   height: auto;
+  position: relative;
+`;
+
+export const HeartButton = styled.button`
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  background-color: inherit;
+  transition: background-color 200ms linear;
+
+  &:hover,
+  :focus {
+    background-color: inherit;
+  }
+`;
+
+const setHeartFill = props => {
+  switch (props.active) {
+    case 'true':
+      return '#3470FF';
+    case 'false':
+      return 'transparent';
+    default:
+      return 'transparent';
+  }
+};
+const setHeartStroke = props => {
+  switch (props.active) {
+    case 'true':
+      return '#3470FF';
+    case 'false':
+      return '#FFFFFF';
+    default:
+      return '#FFFFFF';
+  }
+};
+
+export const HeartIcon = styled.svg`
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  stroke: ${setHeartStroke};
+  fill: ${setHeartFill};
+  transition: stroke fill 200ms linear;
+
+  &:hover,
+  :focus {
+    stroke: ${theme.colors.blue};
+    fill: ${theme.colors.blue};
+  }
 `;
 
 export const Image = styled.img`
