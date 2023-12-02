@@ -9,14 +9,14 @@ import { store } from 'redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter basename="/car-rental-project">
-      <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <Global styles={GlobalStyles} />
-          <App />{' '}
-        </Provider>
-      </ThemeProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+  //<React.StrictMode>
+  <BrowserRouter basename="/car-rental-project">
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Global styles={GlobalStyles} />
+        <App />{' '}
+      </Provider>
+    </ThemeProvider>
+  </BrowserRouter>
+  //</React.StrictMode>
 );

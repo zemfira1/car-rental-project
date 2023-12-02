@@ -9,4 +9,5 @@ export const AllCarsList = styled.ul`
   row-gap: ${theme.spacing(12.5)};
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 100px;
 `;

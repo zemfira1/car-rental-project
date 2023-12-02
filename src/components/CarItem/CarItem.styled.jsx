@@ -18,6 +18,7 @@ export const Image = styled.img`
 export const TitleArea = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: ${theme.spacing(2)};
 `;
 
 export const Title = styled.h2`

@@ -40,6 +40,11 @@ export const ModalInfo = ({
   const rentalConditionsArray = rentalConditions.split('\n');
   const ageArray = rentalConditionsArray[0].split(':');
 
+  const stringMileage = mileage.toString();
+  const mileageArray = stringMileage.split('');
+  mileageArray.splice(stringMileage.length - 3, 0, ',');
+  const correctMileage = mileageArray.join('');
+
   return (
     <ModalInfoArea>
       <ClouseButton onClick={() => toggleModal()}>
@@ -95,7 +100,7 @@ export const ModalInfo = ({
             {rentalConditionsArray[2]}
           </RentalConditionsItem>
           <RentalConditionsItem>
-            Mileage: <Accent>{mileage}</Accent>
+            Mileage: <Accent>{correctMileage}</Accent>
           </RentalConditionsItem>
           <RentalConditionsItem>
             Price: <Accent>{rentalPrice}</Accent>

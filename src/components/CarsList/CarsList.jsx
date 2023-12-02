@@ -1,21 +1,8 @@
 import { Loader } from 'components/Loader';
-import { useEffect } from 'react';
-import { fetchCarsList } from 'redux/operations';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCars, selectError, selectIsLoading } from 'redux/selectors';
 import { CarItem } from 'components/CarItem';
 import { AllCarsList } from './CarsList.styled';
 
-export const CarsList = () => {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-  const cars = useSelector(selectCars);
-
-  useEffect(() => {
-    dispatch(fetchCarsList());
-  }, [dispatch]);
-
+export const CarsList = ({ cars, isLoading, error }) => {
   return (
     <>
       {isLoading && <Loader />}

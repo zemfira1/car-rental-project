@@ -48,6 +48,7 @@ export const GlobalStyles = css`
     border: none;
     font: inherit;
     font-size: ${theme.fontSizes.regular};
+    font-weight: ${theme.fontWeight.semiBold};
     color: ${theme.colors.white};
     background-color: ${theme.colors.blue};
     cursor: pointer;

@@ -13,7 +13,7 @@ const carsListSlice = createSlice({
       })
       .addCase(fetchCarsList.fulfilled, (state, action) => {
         state.cars.isLoading = false;
-        state.cars.items = action.payload;
+        state.cars.items = state.cars.items.concat(action.payload);
       })
       .addCase(fetchCarsList.rejected, (state, action) => {
         state.cars.isLoading = false;
