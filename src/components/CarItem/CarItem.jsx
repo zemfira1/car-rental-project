@@ -45,7 +45,6 @@ export const CarItem = ({
 
   useEffect(() => {
     localStorage.setItem('favoriteCars', JSON.stringify(listOfFavorite));
-    console.log(listOfFavorite);
   }, [listOfFavorite]);
 
   const toggleModal = () => {
@@ -58,7 +57,6 @@ export const CarItem = ({
     const selectItemById = cars.filter(car => car.id === selectId);
 
     const index = listOfFavorite.findIndex(car => car.id === selectItemById.id);
-    console.log(index);
 
     if (index < 0) {
       setListOfFavorite([...selectItemById]);
