@@ -5,16 +5,15 @@ export const Item = styled.li`
   display: flex;
   gap: ${theme.spacing(4)};
   width: 100%;
-  height: auto;
+  height: ${theme.spacing(72)};
   border-radius: 24px;
   background-color: ${theme.colors.white};
-  padding: 40px;
 `;
 
 export const Image = styled.img`
   width: ${theme.spacing(90)};
   object-fit: cover;
-  height: ${theme.spacing(70)};
+  height: 100%;
   border-radius: ${theme.spacing(3.5)};
 `;
 
