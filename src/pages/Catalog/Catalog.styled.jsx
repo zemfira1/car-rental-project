@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { theme } from 'styles';
 
 export const CatalogPage = styled.section`
-  padding-top: 50px;
-  padding-bottom: 100px;
+  padding-top: ${theme.spacing(12.5)};
+  padding-bottom: ${theme.spacing(25)};
 `;
 
 export const ButtonArea = styled.div`

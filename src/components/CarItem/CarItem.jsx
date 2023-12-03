@@ -10,10 +10,12 @@ import {
   CharacteristicsItem,
   HeartIcon,
 } from './CarItem.styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal } from 'components/Modal';
 import { ModalInfo } from 'components/ModalInfo';
 import sprite from '../../assets/images/symbol-defs.svg';
+import { useSelector } from 'react-redux';
+import { selectCars } from 'redux/selectors';
 
 export const CarItem = ({
   id,
@@ -36,6 +38,15 @@ export const CarItem = ({
   const addressArray = address.split(',');
   const [showModal, setShowModal] = useState(false);
   const [activeHeart, setActiveHeart] = useState(false);
+  const cars = useSelector(selectCars);
+  const [listOfFavorite, setListOfFavorite] = useState(
+    JSON.parse(localStorage.getItem('favoriteCars')) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem('favoriteCars', JSON.stringify(listOfFavorite));
+    console.log(listOfFavorite);
+  }, [listOfFavorite]);
 
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
@@ -43,6 +54,20 @@ export const CarItem = ({
 
   const toggleActiveHeart = () => {
     setActiveHeart(prevState => !prevState);
+    const selectId = id;
+    const selectItemById = cars.filter(car => car.id === selectId);
+
+    const index = listOfFavorite.findIndex(car => car.id === selectItemById.id);
+    console.log(index);
+
+    if (index < 0) {
+      setListOfFavorite([...selectItemById]);
+    }
+
+    if (index >= 0) {
+      const newList = listOfFavorite.splice(index, 1);
+      setListOfFavorite(newList);
+    }
   };
 
   return (
