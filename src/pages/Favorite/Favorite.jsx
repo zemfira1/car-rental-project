@@ -1,5 +1,5 @@
 import { Container } from 'components/Container';
-import { FavoriteCars } from 'components/FavoriteCarsList';
+import { FavoriteCarsList } from 'components/FavoriteCarsList';
 import { NoCars } from 'components/NoCars';
 import { FavoritePage } from './Favorite.styled';
 
@@ -10,7 +10,7 @@ const Favorite = () => {
     <Container>
       {arrayOfFavoriteCars && arrayOfFavoriteCars.length > 0 ? (
         <FavoritePage>
-          <FavoriteCars arrayOfFavoriteCars={arrayOfFavoriteCars} />
+          <FavoriteCarsList arrayOfFavoriteCars={arrayOfFavoriteCars} />
         </FavoritePage>
       ) : (
         <NoCars />

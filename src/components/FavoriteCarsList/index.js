@@ -1,2 +1,2 @@
-import { FavoriteCars } from './FavoriteCarsList.jsx';
-export { FavoriteCars };
+import { FavoriteCarsList } from './FavoriteCarsList.jsx';
+export { FavoriteCarsList };

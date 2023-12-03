@@ -2,7 +2,7 @@ import { FavoriteCarsItem } from 'components/FavoriteCarsItem';
 import { List } from './FavoriteCarsList.styled';
 import { nanoid } from 'nanoid';
 
-export const FavoriteCars = ({ arrayOfFavoriteCars }) => {
+export const FavoriteCarsList = ({ arrayOfFavoriteCars }) => {
   return (
     <>
       {arrayOfFavoriteCars.length > 0 && (
